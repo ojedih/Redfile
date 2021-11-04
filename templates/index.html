@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A very simple and secure way to transfer your files between devices."/>
+    <meta name="keywords" content="redfile, red file, red file transfer, red file share, file, file transfer, share files, cross platform, share, transfer files, wetransfer, free file transfer, file sharing, temp, temp files, temporary files, encrypted files"/>
+    <title>Redfile - Temporary File Transfer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&family=Cutive+Mono&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/static/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/static/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/static/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/static/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header>
+        <h1 translate="no">redfile<span>.</span></h1>
+        <!-- <p>A very simple and secure file transfer service.</p> -->
+        <p>Simple. Fast. Private.</p>
+    </header>
+
+    <div id="mainContent">
+        <div class="upload">
+            <h1 id="uploadH1" class="sec-title">Upload</h1>
+    
+            <div id="uploadForm">
+                <label for="fileInput" id="dropFiles" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+                    <span id="fileInputText">Select File</span>
+                    <input type="file" name="file" id="fileInput"/>
+                </label>
+
+                <button id="uploadBtn" class="submit-btn">Upload</button>
+
+                
+                <p id="uploadError" class="textError">JS Error</p>
+                
+            </div> 
+        </div>
+
+        <span class="divider"></span>
+    
+        <div class="download">
+            <h1 id="downloadH1" class="sec-title">Download</h1>
+
+            <div id="downloadForm">
+                <label for="fileId">File Code or URL</label>
+                <input type="text" class="fileId" id="fileId-1" maxlength="1">
+                <input type="text" class="fileId" id="fileId-2" maxlength="1">
+                <input type="text" class="fileId" id="fileId-3" maxlength="1">
+                <input type="text" class="fileId" id="fileId-4" maxlength="1">
+                <input type="text" class="fileId" id="fileId-5" maxlength="1">
+                <input type="text" class="fileId" id="fileId-6" maxlength="1">
+        
+                <button type="submit" id="pasteBtn" class="submit-btn" style="padding: 10px 25px">Paste</button>
+
+                <a href="" id='submitId' class="submit-btn">Download</a>
+
+                <p id="downloadError" class="textError">JS Error</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="/m/about" style="float: left; margin: 20px 5%; color: inherit; text-decoration:none; display: inline;">About</a>
+        <p style="align-items:center">Made with 🤍 by <a href="https://twitter.com/_ojedih" target="_blank" style="margin: 0 5px; color: inherit; text-decoration:underline;">@ojedih</a></p>
+        <p style="float: right; margin: 20px 5%;">b1-0.1</p>
+    </footer>
+</body>
+
+</html>
+
+<script src="/static/js/main.js"></script>
+
+<script>
+
+    if($(window).width() <= 600) {
+        $('#uploadForm').hide();
+        $('#downloadForm').hide();
+    }
+
+        $('#uploadH1').on('click', function(){
+            if($(window).width() <= 600) {
+                $('#uploadForm').slideToggle()
+                $('#downloadForm').slideUp();
+            }
+        });
+
+        $('#downloadH1').on('click', function(){
+            if($(window).width() <= 600) {
+                $('#downloadForm').slideToggle()
+                $('#uploadForm').slideUp();
+            }
+        });
+    
+
+    $('#downloadError').hide();
+    $('#uploadError').hide();
+
+    $('.fileId').keyup(function() {
+        let currentElem = $(this).attr("id");
+        let elemNum = parseInt(currentElem.slice(7,8));
+        elemNum++
+        $('#fileId-' + elemNum).focus();
+    });
+
+    $('.fileId').on('click', function() {
+        if($(this).is(':focus')) {
+            $(this).val("");
+        }
+    });
+
+    $('#submitId').on('click', function(){
+        let fileId = "";
+        for(i = 1; i <= 6; i++) {
+            let cellValue = $('#fileId-' + i).val().toLowerCase();
+            fileId += cellValue;
+        }
+        $(this).attr("href", "/" + fileId);
+    });
+
+    $('#fileInput').change(function(e){
+        var fileName = e.target.files[0].name;
+        var fileNameBase = fileName.split('.').slice(0, -1).join('.');
+        var extension = fileName.split('.').pop();
+        
+        if(fileNameBase.length > 15)
+        {
+            $('#fileInputText').html(fileName.substring(0,15) + "...." + extension);
+        } else {
+            $('#fileInputText').html(fileName);
+        }
+    });
+
+    $('#pasteBtn').on("click", function(){
+        navigator.clipboard.readText()
+        .then(text => {
+            if(text.length == 6) {
+                for(let i = 1; i <= 6; i++) {
+                    $('#fileId-' + i).val(text[i-1]);
+                }
+                $('#downloadError').fadeOut(500);
+            } else if(text.includes(window.location.hostname)) {
+                let fileId = text.split("/").pop();
+                for(let i = 1; i <= 6; i++) {
+                    $('#fileId-' + i).val(fileId[i-1]);
+                }
+                $('#downloadError').fadeOut(500);
+            } else {
+                $('#downloadError').html('Nothing valid was copied.');
+                $('#downloadError').fadeIn(500);
+            }
+        })
+        .catch(err => {
+            $('#downloadError').html('Nothing found on clipboard.');
+            $('#downloadError').fadeIn(500);
+        });
+    });
+
+    $('#uploadBtn').on("click", function(){
+        $('#uploadError').fadeOut(500);
+        
+        if($('#fileInput').val()) {
+        
+            var fileSize = $('#fileInput').prop('files')[0].size;
+            
+            if(fileSize <= Math.pow(10, 8)) {
+                var formData = new FormData();
+                formData.append('file', $('#fileInput').prop('files')[0]);
+
+                $(this).html('Uploading');
+                $(this).css("color", "#efefef")
+                $(this).css("background-color", "#d1d1d1")
+                $(this).css("cursor", "default")
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/',
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data) {
+                        if(data == 'errNoFile') {
+                            $('#uploadError').html('No file selected.');
+                            $('#uploadError').fadeIn(500);
+                        } else if (data == 'errFileTooLarge') {
+                            $('#uploadError').html('File is too big! Max size is 100MB.');
+                            $('#uploadError').fadeIn(500);
+                        }
+                        else {
+                            $("#uploadBtn").html('Done');
+                            $("#uploadBtn").css("color", "#efefef")
+                            $("#uploadBtn").css("background-color", "#008500")
+                            window.location.href = "/u/" + data;
+                        }
+                    },
+                    error: function(err){
+                        $('#uploadError').html('Something went wrong.');
+                        $('#uploadError').fadeIn(500);
+                        
+                        $("#uploadBtn").html('Upload');
+                        $("#uploadBtn").css("color", "black")
+                        $("#uploadBtn").css("background-color", "#efefef")
+                        $("#uploadBtn").css("cursor", "pointer")
+                    }
+                });
+            } else {
+                $('#uploadError').html('File is too big! Max size is 100MB.');
+                $('#uploadError').fadeIn(500);
+            }
+        } else {
+            $('#uploadError').html('No file selected.');
+            $('#uploadError').fadeIn(500);
+        }
+    });
+
+    
+    function dropHandler(event) {
+        event.preventDefault();
+
+        //if(event.dataTransfer.items) {
+        //    for(var i = 0; i < event.dataTransfer.items.length; i++) {
+        //        var file = event.dataTransfer.items[i].getAsFile();
+        //    }
+        //    console.log(file.name)
+        //}
+    }
+
+    function dragOverHandler(event) {
+        event.preventDefault();
+
+        $('#fileInputText').html("Drag and drop is not available, yet.");
+        $('#fileInputText').css("color", "red");
+        $('#dropFiles').css("border-color", "red");
+    }
+    
+</script>

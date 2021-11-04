@@ -1,0 +1,6 @@
+db.fileTransfer
+.env
+.gcloudignore
+app.yaml
+service-account.json
+__pycache__/

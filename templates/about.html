@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Redfile</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&family=Cutive+Mono&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/static/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/static/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/static/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/static/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+
+    <style>
+
+        #about h1 {
+            margin-bottom: 2%;
+            border-bottom: 2px solid;
+            border-color: #ff0057;
+        }
+
+        section {
+            border-left: 2px solid #acacac;
+            padding:0 10px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 28px;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1 translate="no" id="logo">redfile<span>.</span></h1>
+        <p>Simple. Fast. Private.</p>
+    </header>
+
+    <div id="about">
+        <h1>About</h1>
+        <p>Redfile is a user-friendly service to transfer any type of files between devices. That simple.</p>
+
+        <h2>How it works?</h2>
+        
+        <section>
+        <p>1. The user selects a file and uploads it.</p>
+        <p>2. A code is generated to access the file from another device by scanning a QR or through a URL.</p>
+        <p>3. The user downloads the file.</p>
+        
+        <p>Easy 😊</p>
+        </section>
+
+        <h2>How it works? But in depth.</h2>
+        <section>
+            <p>After the user inputs a file and hits the "Upload" button, files go through an encryption algorythm which outputs encrypted bytes that are instantly uploaded to a Google Cloud Storage bucket.</p>
+            <p>A code is generated to access that file.</p>
+            <p>The user is then redirected to the page where they can either copy a URL or scan a QR to access the file from any device with a web browser installed.</p>
+            <p>Once the file is downloaded, it gets instantly deleted from Google Cloud Storage alongside with its database instance. No trace of information regarding that file is left behind.</p>
+        </section>
+
+        <h2>What is the file size limit?</h2>
+        <section>
+            <p>100 MB.</p>
+            <p>Nevertheless we're working on increasing that by implementing paid plans which will offer even more advantages.</p>
+        </section>
+
+        <h2>Development</h2>
+        <section>
+            <p>As mentioned above we want to expand by introducing paid plans so we can cover the hosting expenses. But there is more.</p>
+            <p>We're also planning on implementing an API for anyone who needs a service of storing temporary files on their project. Furthermore, since the service is <a href="https://github.com/ojedih/Redfile" target="_blank" style="display: inline; color:inherit;">open source</a> we want to make a "kit" so anyone can install it on their local environment (home use, for example). </p>
+        </section>
+
+        <a href="/" id="uploadNewBtn" class="submit-btn">Go Home</a>
+    </div>
+
+    <footer style="position: unset;">
+        <p style="align-items:center">Made with 🤍 by <a href="https://twitter.com/_ojedih" target="_blank" style="margin: 0 5px; color: inherit; text-decoration:underline;">@ojedih</a></p>
+    </footer>
+    
+</body>
+
+<script src="/static/js/main.js"></script>
+</html>

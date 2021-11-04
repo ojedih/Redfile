@@ -1,0 +1,294 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    transition: all;
+    height: 100%;
+    /* background-color: #e7e7e7; */
+}
+
+/* ----------------------------------- Header ----------------------------------- */
+
+header {
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 500%;
+    color: #232323;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    cursor: pointer;
+    width: fit-content;
+}
+
+header h1 span {
+    color: #ff0057;
+}
+
+header p {
+    font-weight: bold;
+    margin: 0;
+    color: #232323;
+}
+
+/* ----------------------------------- Main Divs ----------------------------------- */
+
+#mainContent {
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+#accessContent {
+    position: absolute;
+    display: inherit; 
+    width: 50%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#about {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#errorPage {
+    display: block; 
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+footer p{
+    display: inline-flex;
+    /* margin: 20px 5%; */
+    text-align: center;
+    overflow: hidden;
+}
+
+/* ----------------------------------- Secondary Divs ----------------------------------- */
+
+.upload, .download {
+    flex: 1;
+}
+
+.sec-title {
+    margin-bottom: 7%
+}
+
+.divider {
+    background-color: #ff0057;
+    width: 4px;
+    height: 400px;
+}
+
+/* ------------------------- Specifics (btns, a, labels) ------------------------------------- */
+
+label, button, a {
+    display: block;
+    margin: 30px 0;
+}
+
+#fileInput {
+    display: none;
+}
+
+#dropFiles {
+    text-align: center;
+    padding: 70px 40px;
+    cursor: pointer;
+    border: dashed 2px;
+    border-radius: 5px;
+    border-color: black;
+    margin-left:auto;
+    margin-right:auto;
+    width: 50%;
+}
+
+.submit-btn {
+    font-family: inherit;
+    color: black;
+    background-color: #efefef;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: ease 0.3s;
+    margin-left:auto;
+    margin-right:auto;
+    text-decoration: none;
+    font-size: 15px;
+    width: fit-content;
+}
+
+.submit-btn:hover {
+    
+    background-color: #d1d1d1;
+}
+
+.fileId {
+    width: 5%;
+    text-align: center;
+    border-radius: 3px;
+    border: solid 2px;
+    border-color: rgb(122, 122, 122) ;
+    height: 30px;
+    font-size: 20px;
+    text-transform: lowercase;
+    font-family: inherit;
+    font-family: 'Cutive Mono', monospace;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff0057; 
+}
+
+#codeSpan {
+    font-family: 'Cutive Mono', monospace;
+    text-decoration: underline;
+    color: #ff0057;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#shareLink {
+    font-size: 30px;
+    text-decoration: none;
+    color: #0003a8;
+    background-color: #efefef;
+    max-width: fit-content;
+    padding: 5px 10px;
+    margin: 25px auto;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cutive Mono', monospace;
+}
+
+#downloadBtn {
+    max-width: 100%;
+    font-size: 40px;
+}
+
+#uploadNewBtn {
+    max-width: 100%; 
+    font-size: 30px
+}
+
+#bottomInfoParagraph {
+    color: #242424;
+    font-size:20px;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.textError {
+    color: red;
+}
+
+#goHomeBtn {
+    width: 100%; 
+    font-size: 30px;
+}
+
+/* -------------------------------- Responsive media queries ------------------------------------- */
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 350%;
+    }
+
+    header p {
+        font-size: small;
+    }
+
+    #mainContent {
+        display: block;
+    }
+
+    #about {
+        width: 85%;
+    }
+
+    .divider {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        height: 4px;
+    }
+
+    .fileId {
+        width: 7%;
+    }
+
+    #accessContent {
+        width: 80%;
+    }
+
+    #shareLink {
+        text-align: center;
+        font-size: 17px;
+    }
+
+    #downloadBtn { 
+        font-size: 30px;
+    }
+
+    #uploadNewBtn {
+        font-size: 25px
+    }
+
+    #errorPage {
+        display: block; 
+        width: 80%
+    }
+
+    #goHomeBtn {
+        width: 80%;
+    }
+}
+
+@media (max-height: 760px) {
+    p {
+        font-size: small;
+    }
+
+    #downloadBtn { 
+        font-size: 25px;
+    }
+
+    #uploadNewBtn {
+        font-size: 20px
+    }
+
+    #bottomInfoParagraph {
+        font-size: 15px;
+    }
+}
+
